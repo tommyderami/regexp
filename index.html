@@ -1,0 +1,221 @@
+<html>
+    <head>
+        <!--atelier-lakeside-dark-->
+        <!--atom-one-dark-->
+        <!--https://highlightjs.org/static/demo/-->
+        <link rel="stylesheet" href="styles/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-lakeside-dark.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        <script src="scripts/RegEx.js"></script>
+        
+        <script>
+            function highlight(id) {
+                hljs.highlightBlock(document.getElementById(id));
+            }
+            function showSection(id, func) {
+                render(id, func);
+                highlight(id);
+            }
+            function showAnswer(id, func) {
+                run(id, func);
+                highlight(id);
+            }
+        </script>
+    </head>
+    <body>        
+        <div>
+            <h1>Regular Expressions in Javascript</h1>
+            <p class="subtitle">Emily Rautenberg - UX Engineer, Comcast NBCUniversal</p>
+            <p class="subtitle">MakerBar - Wednesday, August, 22, 2018</p>
+            <p class="subtitle"><a href="https://github.com/erautenberg/regexp.git">https://github.com/erautenberg/regexp.git</a></p>
+            
+<!--            <p>
+Hi everybody! I’m Emily Rautenberg, a Software Engineer at Comcast NBCUniversal. I graduated in 2015 from Stevens Institute of Technology, right here in Hoboken, with a Master’s and Bachelor’s in Computer Science, as well as a Bachelor’s in Visual Arts & Technology.
+
+I currently work on a Prototyping team in Comcast’s Experience Design Department. Tonight, I’m here to talk to you about Regular Expressions, which I’ve recently been utilizing fairly heavily within my team.
+
+A Regular Expression is a sequence of characters that denotes a search pattern to be used on a set of a text. Tonight we are going to cover how to utilize regular expressions in JavaScript, but please know that this can be applied to tons of different languages, and even all kinds of text editors. Whether you’re using VS Code or Sublime, you can toggle on RegEx mode in your normal find and replaces. This even works in Excel.
+
+So before we start, I was wondering what everyone else’s backgrounds were. Who here has used JavaScript before? Who here has done any kind of programming before? What about data manipulation in general? Have you ever had large sets of data you had to format, even in Excel? Great! Then there’s a good chance you all have had a use for regular expressions at some point in your careers. So my last question, has anyone used Regular Expressions before? For those of you that have, do you honestly remember any of it?
+
+If you’re anything like me, maybe you tried googling a regular expression once, but if you couldn’t figure out what you needed faster than it would take to format your data by hand, you gave up. And then maybe you didn’t touch regular expressions again for another six months. Tonight, I want to show you how simple and powerful regular expressions can be once you break them down.</p>-->
+            
+            <h2>RegEx</h2>
+            <p>A Regular Expression, or regex, is a pattern that can be used to describe a specific subset of text. RegEx use various special character codes to denote sets of characters and shortcuts to generate a searchable pattern. This tutorial will specifically cover how to utilize regular expressions in JavaScript.</p>
+            
+            <div class="content">
+                <section>
+                    <h2>Helpful Resources</h2>
+                    <ul>
+                        <li><a href="https://www.debuggex.com/" target="_blank">https://www.debuggex.com/</a></li>
+                        <li><a href="https://javascript.info/regexp-introduction" target="_blank">https://javascript.info/regexp-introduction</a></li>
+                        <li><a href="https://eloquentjavascript.net/09_regexp.html" target="_blank">https://eloquentjavascript.net/09_regexp.html</a></li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>Creating a Regular Expression</h2>
+                    <pre><code id="createRegEx" class="javascript"></code></pre>
+                    <button onclick="showAnswer('createAnswer', createRegEx);">Run</button><button onclick="clearOut('createAnswer')">Clear</button>
+                    <pre><code id="createAnswer" class="javascript"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Methods of RegEx and Strings</h2>
+                    <pre><code id="methods" class="javascript"></code></pre>
+                    <button onclick="showAnswer('methodsAnswer', methods);">Run</button><button onclick="clearOut('methodsAnswer')">Clear</button>
+                    <pre><code id="methodsAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Flags</h2>
+                    <pre><code id="flags" class="javascript"></code></pre>
+                    <button onclick="showAnswer('flagsAnswer', flags)">Run</button><button onclick="clearOut('flagsAnswer')">Clear</button>
+                    <pre><code id="flagsAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Anchors</h2>
+                    <pre><code id="anchorchars" class="javascript"></code></pre>
+                    <button onclick="showAnswer('anchorcharsAnswer', anchorchars)">Run</button><button onclick="clearOut('anchorcharsAnswer')">Clear</button>
+                    <pre><code id="anchorcharsAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Sets and Ranges</h2>
+                    <pre><code id="setsranges" class="javascript"></code></pre>
+                    <button onclick="showAnswer('setsrangesAnswer', setsranges)">Run</button><button onclick="clearOut('setsrangesAnswer')">Clear</button>
+                    <pre><code id="setsrangesAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Character Groups</h2>
+                    <pre><code id="characters" class="javascript"></code></pre>
+                    <button onclick="showAnswer('charactersAnswer', characters)">Run</button><button onclick="clearOut('charactersAnswer')">Clear</button>
+                    <pre><code id="charactersAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Escaping Special Characters</h2>
+                    <pre><code id="special" class="javascript"></code></pre>
+                    <button onclick="showAnswer('specialAnswer', special)">Run</button><button onclick="clearOut('specialAnswer')">Clear</button>
+                    <pre><code id="specialAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Lengths</h2>
+                    <pre><code id="lengths" class="javascript"></code></pre>
+                    <button onclick="showAnswer('lengthsAnswer', lengths)">Run</button><button onclick="clearOut('lengthsAnswer')">Clear</button>
+                    <pre><code id="lengthsAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Quantifiers</h2>
+                    <pre><code id="quantifiers" class="javascript"></code></pre>
+                    <button onclick="showAnswer('quantifiersAnswer', quantifiers)">Run</button><button onclick="clearOut('quantifiersAnswer')">Clear</button>
+                    <pre><code id="quantifiersAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Greedy</h2>
+                    <pre><code id="greedy" class="javascript"></code></pre>
+                    <button onclick="showAnswer('greedyAnswer', greedy)">Run</button><button onclick="clearOut('greedyAnswer')">Clear</button>
+                    <pre><code id="greedyAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Groups</h2>
+                    <pre><code id="groups" class="javascript"></code></pre>
+                    <button onclick="showAnswer('groupsAnswer', groups)">Run</button><button onclick="clearOut('groupsAnswer')">Clear</button>
+                    <pre><code id="groupsAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Or (|)</h2>
+                    <pre><code id="ors" class="javascript"></code></pre>
+                    <button onclick="showAnswer('orsAnswer', ors)">Run</button><button onclick="clearOut('orsAnswer')">Clear</button>
+                    <pre><code id="orsAnswer" class="html"></code></pre>
+                </section>
+                
+                <section>
+                    <h2>Exercise Questions</h2>
+                    
+                    <h3>Question 1</h3>
+                    <pre><code class="javascript">// Prompt 1
+// Write a regular expression to confirm a user has entered a valid username, given the following requirements:
+//  - 3-16 characters in length
+//  - case does not matter
+//  - contains no special characters other than _
+//  - cannot start with a digit</code></pre>
+                    <button onclick="showSection('prompt1', prompt1);showAnswer('prompt1Answer', prompt1);">Show Answer</button><button onclick="clearOut('prompt1');clearOut('prompt1Answer');">Hide Answer</button>
+                    <pre><code id="prompt1" class="javascript"></code></pre>
+                    <pre><code id="prompt1Answer" class="javascript"></code></pre>
+                    
+                    <h3>Question 2</h3>
+                    <pre><code class="javascript">// Prompt 2
+// Extract only the full names from a string which have titles
+//  - Mr.
+//  - Mrs.
+//  - Ms.
+//  - Dr.
+// var str = "Ms. Kathryn Stracquatanio\nMr. CF Grugan\nMs. Chelsea Simek\nEmily Rautenberg\nMs. Angie Chiraz\nMr. Marcus Loechner\nMr. Jeffrey Smith";</code></pre>
+                    <button onclick="showSection('prompt2', prompt2);showAnswer('prompt2Answer', prompt2);">Show Answer</button><button onclick="clearOut('prompt2');clearOut('prompt2Answer')">Hide Answer</button>
+                    <pre><code id="prompt2" class="javascript"></code></pre>
+                    <pre><code id="prompt2Answer" class="javascript"></code></pre>
+                    
+                    <h3>Question 3</h3>
+                    <pre><code class="javascript">// Prompt 3
+// Now, using the answer from Prompt 2, let's rearrange these names to be Last, First Title</code></pre>
+                    <button onclick="showSection('prompt3', prompt3);showAnswer('prompt3Answer', prompt3);">Show Answer</button><button onclick="clearOut('prompt3');clearOut('prompt3Answer')">Hide Answer</button>
+                    <pre><code id="prompt3" class="javascript"></code></pre>
+                    <pre><code id="prompt3Answer" class="javascript"></code></pre>
+                    
+                    <h3>Question 4</h3>
+                    <pre><code class="javascript">// Prompt 4 / A Real World Example
+// Think of a voice assistant which is able to interpret various utterances all leading to the same result. How could you account for someone asking Alexa or Google to search for something on YouTube?
+// Chain together three different regular expressions to account for the following utterances:
+//    YouTube [QUERY]
+//    Search YouTube for [QUERY]
+//    Search/Find (for) [QUERY] on YouTube</code></pre>
+                    <button onclick="showSection('prompt4', prompt4);showAnswer('prompt4Answer', prompt4);">Show Answer</button><button onclick="clearOut('prompt4');clearOut('prompt4Answer')">Hide Answer</button>
+                    <pre><code id="prompt4" class="javascript"></code></pre>
+                    <pre><code id="prompt4Answer" class="javascript"></code></pre>
+                    
+                </section>
+                
+                <section>
+                    <h2>For More Challenges, Visit: <a href="https://www.hackerrank.com/domains/regex/re-introduction" target="_blank">https://www.hackerrank.com/domains/regex/re-introduction</a></h2>
+                </section>
+                
+            </div>
+        </div>
+        
+        <script>
+            // Initialize Highlighting
+            hljs.initHighlightingOnLoad();
+            
+            // Highlight all content added after the init
+            var sectionArr = [
+                {id: "createRegEx", func: createRegEx},
+                {id: "methods", func: methods},
+                {id: "flags", func: flags},
+                {id: "anchorchars", func: anchorchars},
+                {id: "setsranges", func: setsranges},
+                {id: "characters", func: characters},
+                {id: "special", func: special},
+                {id: "lengths", func: lengths},
+                {id: "quantifiers", func: quantifiers},
+                {id: "greedy", func: greedy},
+                {id: "groups", func: groups},
+                {id: "ors", func: ors}
+            ];
+            
+            for (var i=0; i<sectionArr.length; i++)
+                showSection(sectionArr[i].id, sectionArr[i].func);
+            
+        </script>
+    </body>
+</html>
